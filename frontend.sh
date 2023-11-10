@@ -8,6 +8,7 @@ status_check() {
   fi
 }
 
+
 echo -e "${color} installing nginx \e[0m"
 dnf install nginx -y &>>$log_log_file
 status_check
