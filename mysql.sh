@@ -11,7 +11,7 @@ fi
 }
 
 echo -e "${color} disabling mysql \e[0m"
-dnf module disable mysql -y
+dnf module disable mysql -y &>>$log_log_file
 status_check
 
 
