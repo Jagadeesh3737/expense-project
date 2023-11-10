@@ -26,7 +26,7 @@ status_check
 
 echo -e "${color} unzipping frontend content \e[0m"
 cd /usr/share/nginx/html
-unzip /tmp/frontend.zip &>>$log
+unzip /tmp/frontend.zip &>>$log_file
 
 echo -e "${color} enabling nginx \e[0m"
 systemctl enable nginx &>>$log_file
