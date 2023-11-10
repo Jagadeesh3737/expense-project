@@ -53,8 +53,8 @@ status_check
 
 
 cd /app
-echo "${color} unzipping the backend content \e[0m"
-unzip /tmp/backend.zip -y
+echo -e "${color} unzipping the backend content \e[0m"
+unzip -y /tmp/backend.zip
 status_check
 
 echo -e "${color} reloading system \e[0m"
