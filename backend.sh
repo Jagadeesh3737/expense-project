@@ -57,7 +57,7 @@ cd /app
  if [ ! -d /tmp/backend.zip ]; then
      echo -e "${color}Unzipping the backend.zip \e[0m"
      unzip backend.zip -d /etc/backend.zip &>>$log_file
-     $?
+      echo $?
      echo -e "${color}File successfully unzipped to $extract_path\e[0m"
  else
      echo -e "${color}The file has already been unzipped at $extract_path\e[0m"
