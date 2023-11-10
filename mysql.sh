@@ -36,4 +36,5 @@ status_check
 
 echo -e "${color} setting password \e[0m"
 mysql_secure_installation --set -root -pass ExpenseApp@1
+status_check
 
