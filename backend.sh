@@ -81,7 +81,7 @@ status_check
 echo -e "${color} loading schema \e[0"
 
 
-mysql -h mysq-dev.devops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h mysq-dev.devops76.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 
 
