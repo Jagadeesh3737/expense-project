@@ -53,17 +53,15 @@ status_check
 
 
 cd /app
+echo -e "${color}Unzipping the backend content \e[0m"
+unzip /tmp/backend.zip
+status_check
 
-if [ -d /tmp/backend.zip ]; then
-  echo -e "${color}The file has already been unzipped at /etc/backend.zip \e[0m"
-else
-  echo -e "${color}Unzipping the backend content \e[0m"
-  unzip /tmp/backend.zip &>>$log_file
-    status_check
-      if [ $? -ne 0 ]; then
-        exit
-      fi
+
+if [ $? -ne 0 ]; then
+    exit
 fi
+
 
 
 echo -e "${color} reloading system \e[0m"
