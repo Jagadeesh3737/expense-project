@@ -53,11 +53,18 @@ status_check
 
 
 cd /app
-if [ ! -d /tmp/backend.zip ]; then
-  echo -e "${color} unzipping the backend.zip \e[0m"
-  unzip /tmp/backend.zip &>>$log_file
-  status_check
-fi
+
+ if [ ! -d /tmp/backend.zip ]; then
+     echo -e "${color}Unzipping the backend.zip \e[0m"
+     unzip backend.zip -d /etc/backend.zip &>>$log_file
+     status_check
+     echo -e "${color}File successfully unzipped to $extract_path\e[0m"
+ else
+     echo -e "${color}The file has already been unzipped at $extract_path\e[0m"
+ fi
+
+
+
 
 echo -e "${color} reloading system \e[0m"
 systemctl daemon-reload
