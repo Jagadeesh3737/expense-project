@@ -54,7 +54,7 @@ status_check
 
 cd /app
 echo -e "${color} unzipping the backend content \e[0m"
-unzip -y /tmp/backend.zip
+unzip -o /tmp/backend.zip
 status_check
 
 echo -e "${color} reloading system \e[0m"
