@@ -57,7 +57,7 @@ cd /app
 if [ ! -d /etc/backend.zip ]; then
     echo -e "${color}Unzipping the backend.zip\e[0m"
     # Unzip the file, automatically answering 'yes' to replace prompts
-    unzip -o backend.zip -d /etc/backend.zip &>>$log_file
+    unzip -o backend.zip -d /etc/backend.zip
     status_check
     echo -e "${color}File successfully unzipped to your path \e[0m"
 else
