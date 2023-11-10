@@ -28,8 +28,6 @@ echo -e "${color} copying the backend.service \e[0m"
 cp backend.service /etc/systemd/system/backend.service &>>$log_file
 status_check
 
-id expense &>>$log_file
-if [ $? -ne 0 ]; then
 echo -e "${color} adding user \e[0m"
 useradd expense
 status_check
@@ -52,7 +50,6 @@ cd /app
 echo -e "${color} unzipping the backend.zip \e[0m"
 unzip /tmp/backend.zip &>>$log_file
 status_check
-
 
 echo -e "${color} reloading system \e[0m"
 systemctl daemon-reload
