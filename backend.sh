@@ -20,11 +20,15 @@ echo -e "${color} enabling nodejs \e[0m"
 dnf module enable nodejs:18 -y &>>$log_file
 status_check
 
+echo -e "${color} installing nodejs \e[0m"
+dnf install nodejs -y &>>$log_file
+status_check
+
 echo -e "${color} copying the backend.service \e[0m"
 cp /etc/systemd/system/backend.service &>>$log_file
 status_check
 
-id expense
+id expense &>>$log_file
 if [ $? -ne 0 ]; then
 echo -e "${color} adding user \e[0m"
 useradd expense
