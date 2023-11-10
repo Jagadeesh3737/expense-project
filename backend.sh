@@ -54,16 +54,16 @@ status_check
 
 cd /app
 
- if [ ! -d /tmp/backend.zip ]; then
-     echo -e "${color}Unzipping the backend.zip \e[0m"
-     unzip backend.zip -d /etc/backend.zip &>>$log_file
-      echo $?
-     echo -e "${color}File successfully unzipped to $extract_path\e[0m"
- else
-     echo -e "${color}The file has already been unzipped at $extract_path\e[0m"
- fi
-
-
+if [ -d /tmp/backend.zip ]; then
+  echo -e "${color}The file has already been unzipped at /etc/backend.zip \e[0m"
+else
+  echo -e "${color}Unzipping the backend content \e[0m"
+  unzip /tmp/backend.zip &>>$log_file
+    status_check
+      if [ $? -ne 0 ]; then
+        exit
+      fi
+fi
 
 
 echo -e "${color} reloading system \e[0m"
@@ -84,3 +84,4 @@ status_check
 
 echo -e "${color} loading schema \e[0"
 mysql -h mysq-dev.devops.online -uroot -p$mysq_pass > /app/schema/backend.sql &>>$log_file
+status_check
