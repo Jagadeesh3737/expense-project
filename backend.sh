@@ -74,7 +74,7 @@ dnf install mysql -y &>>$log_file
 status_check
 
 echo -e "${color} loading schema \e[0"
-mysql -h mysq-dev.devops76.online -uroot -p$mysql_pass < /app/schema/backend.sql
+mysql -h mysq-dev.devops76.online -uroot -p$mysql_pass < /app/schema/backend.sql &>>$log_file
 status_check
 
 
