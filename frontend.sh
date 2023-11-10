@@ -13,7 +13,7 @@ dnf install nginx -y &>>$log_file
 status_check
 
 echo -e "${color} copying expense.conf file \e[0m"
-cp /etc/nginx/default.d/expense.conf &>>$log_file
+cp expense.conf /etc/nginx/default.d/expense.conf
 status_check
 
 echo -e "${color} removing the default content of nginx \e[0m"
@@ -21,7 +21,7 @@ rm -rf /usr/share/nginx/html/* &>>$log_file
 status_check
 
 echo -e "${color} downloading the frontend content \e[0m"
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
 status_check
 
 echo -e "${color} unzipping frontend content \e[0m"
