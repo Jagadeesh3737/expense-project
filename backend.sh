@@ -46,9 +46,13 @@ echo -e "${color} npm installing \e[0m"
 npm install &>>$log_file
 status_check
 
-echo -e "${color} downloading the backend application code \e[0m"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>$log_file
+if[ ! -f backend.zip ]; then
+  echo -e "${color} downloading the backend application code \e[0m"
+  curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>$log_file
+fi
+
 status_check
+
 
 cd /app
 echo -e "${color} unzipping the backend.zip \e[0m"
