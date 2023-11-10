@@ -35,9 +35,9 @@ if [ $? -ne 0 ]; then
 fi
 
 
-if [ ! -d "app" ]; then
+if [ ! -d /app ]; then
   echo -e "${color} making directory \e[0m"
-  mkdir /app
+  mkdir /app &>>$log_file
   status_check
 fi
 
