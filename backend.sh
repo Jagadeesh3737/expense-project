@@ -72,4 +72,5 @@ status_check
 
 echo -e "${color} loading schema \e[0"
 mysql -h mysq-dev.devops.online -uroot -p$mysq_pass > /app/schema/backend.sql &>>$log_file
-status_check
+
+
