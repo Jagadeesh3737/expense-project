@@ -28,14 +28,18 @@ echo -e "${color} copying the backend.service \e[0m"
 cp backend.service /etc/systemd/system/backend.service &>>$log_file
 status_check
 
-echo -e "${color} adding user \e[0m"
-useradd expense
-status_check
+if [ $/ -ne 0 ]; then
+   echo -e "${color} adding user \e[0m"
+   useradd expense
+   status_check
+fi
+
 
 if [ ! -d "app" ]; then
-echo -e "${color} making directory \e[0m"
-mkdir /app
-status_check
+  echo -e "${color} making directory \e[0m"
+  mkdir /app
+  status_check
+fi
 
 cd /app
 echo -e "${color} npm installing \e[0m"
