@@ -10,7 +10,7 @@ fi
 
 
 echo -e "${color} installing nginx \e[0m"
-dnf install nginx -y &>>$log_file
+dnf install nginx -y
 status_check
 
 
