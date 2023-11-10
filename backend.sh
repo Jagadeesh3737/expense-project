@@ -73,6 +73,20 @@ echo -e "${color} installing mysql client \e[0m"
 dnf install mysql -y &>>$log_file
 status_check
 
+
+
+
+
+
 echo -e "${color} loading schema \e[0"
+
+
 mysql -h mysq-dev.devops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+
+
 status_check
+
+
+
+
