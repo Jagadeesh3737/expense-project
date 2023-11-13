@@ -1,14 +1,4 @@
-color="\e[32m"
-log_file=/tmp/expense.log
-
-
-status_check() {
-if [ $? -eq 0 ]; then
-      echo -e "\e[34m success \e[0m"
-    else
-      echo -e "\e[31m failed \e[0m"
-fi
-}
+source common.sh
 
 echo -e "${color} disabling mysql \e[0m"
 dnf module disable mysql -y &>>$log_file
@@ -35,6 +25,6 @@ status_check
 
 
 echo -e "${color} setting password \e[0m"
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ${mysql_pass} &>>$log_file
 status_check
 
