@@ -24,7 +24,7 @@ rm -rf /usr/share/nginx/html/* &>>$log_file
 status_check
 
 echo -e "${color} downloading the frontend content \e[0m"
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
+curl -o /tmp/frontend.zip phttps://expense-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
 status_check
 
 echo -e "${color} unzipping frontend content \e[0m"
